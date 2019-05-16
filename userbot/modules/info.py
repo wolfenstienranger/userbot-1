@@ -17,7 +17,7 @@ from userbot.events import register
 TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./")
 
 
-@register(pattern=".whois(?: |$)(.*)", outgoing=True)
+@register(pattern=".info(?: |$)(.*)", outgoing=True)
 async def who(event):
     """ For .whois command, get info about a user. """
     if event.fwd_from:
@@ -100,23 +100,32 @@ async def fetch_info(replied_user, event):
     except TypeError:
         photo = "https://thumbs.dreamstime.com/b/no-user-profile-picture-24185395.jpg"
 
-    first_name = first_name.replace("\u2060", "") if first_name else (
-        "This User has no First Name")
-    last_name = last_name.replace("\u2060", "") if last_name else (
-        "This User has no Last Name")
-    username = "@{}".format(username) if username else (
-        "This User has no Username")
-    user_bio = "This User has no About" if not user_bio else user_bio
+    if first_name:
+        first_name = first_name.replace("\u2060", "")
+    else:
+        first_name = "User has no first name."
+    if last_name:
+        last_name = last_name.replace("\u2060", "")
+    else:
+        last_name = "User has no last name."
+    if username:
+        username = format(username)
+    else:
+        username = "User has no username."
+    if user_bio:
+        user_bio = user_bio
+    else:
+        user_bio = "User has no bio."
 
-    caption = "<b>USER INFO:</b> \n"
-    caption += f"First Name: {first_name} \n"
-    caption += f"Last Name: {last_name} \n"
-    caption += f"Username: {username} \n"
-    caption += f"ID: <code>{user_id}</code> \n \n"
-    caption += f"Bio: \n<code>{user_bio}</code> \n \n"
-    caption += f"Common Chats with this user: {common_chat} \n"
-    caption += f"Permanent Link To Profile: "
-    caption += f"<a href=\"tg://user?id={user_id}\">{first_name}</a>"
+    caption = "<b>USER INFO</b> \n"
+    caption += f"First name: {first_name} \n"
+    caption += f"Last name: {last_name} \n"
+    caption += f"Username: @{username} \n"
+    caption += f"ID: <code>{user_id}</code> \n"
+    caption += f"Bio: {user_bio} \n"
+    caption += f"Common chats with this user: {common_chat} \n"
+    caption += f"Permanent link to profile: "
+    caption += f"<a href=\"https://t.me/{username}\">{first_name}</a>"
 
     return photo, caption
 

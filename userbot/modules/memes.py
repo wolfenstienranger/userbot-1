@@ -23,11 +23,9 @@ from userbot.events import register
 #================= CONSTANT =================
 METOOSTR = [
     "Me too thanks",
-    "Haha yes, me too",
     "Same lol",
     "Me irl",
     "Same here",
-    "Haha yes",
     "Me rn",
 ]
 EMOJIS = [
@@ -180,17 +178,13 @@ FACEREACTS = [
     "(｡◕‿◕｡)",
 ]
 RUNSREACTS = [
-    "Runs to Thanos",
-    "Runs far, far away from earth",
-    "Running faster than usian bolt coz I'mma Bot",
-    "Runs to Marie",
-    "This Group is too cancerous to deal with.",
-    "Cya bois",
-    "Kys",
-    "I am a mad person. Plox Ban me.",
-    "I go away",
-    "I am just walking off, coz me is too fat.",
-    "I Fugged off!",
+    "Running faster than Usain Bolt coz I'm a bot",
+    "Running faster than Barry Allen.",
+    "Runs far, far away from Earth",
+    "Running faster than usian bolt.",
+    "Running to Mars.",
+    "Exits Milky Way galaxy.",
+    "I go away 🚶",
 ]
 #===========================================
 
@@ -212,8 +206,8 @@ async def univsaye(cowmsg):
 async def kek(keks):
     """ Check yourself ;)"""
     uio = ["/", "\\"]
-    for i in range(1, 15):
-        time.sleep(0.3)
+    for i in range(1, 30):
+        time.sleep(0.2)
         await keks.edit(":" + uio[i % 2])
 
 
@@ -221,7 +215,7 @@ async def kek(keks):
 async def lol(lel):
     """ Ok... """
     okay = "-_-"
-    for _ in range(10):
+    for _ in range(25):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 

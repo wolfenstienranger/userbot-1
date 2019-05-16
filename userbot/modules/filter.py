@@ -77,7 +77,7 @@ async def kick_marie_filter(kick):
     """ For .rmfilters command, allows you to kick all \
         Marie(or her clones) filters from a chat. """
     if not kick.text[0].isalpha() and kick.text[0] not in ("/", "#", "@", "!"):
-        await kick.edit("```Will be kicking away all Marie filters.```")
+        await kick.edit("```Removing all filters!```")
         time.sleep(3)
         resp = await kick.get_reply_message()
         filters = resp.text.split("-")[1:]
@@ -85,11 +85,11 @@ async def kick_marie_filter(kick):
             await kick.reply("/stop %s" % (i.strip()))
             await asyncio.sleep(0.3)
         await kick.respond(
-            "```Successfully purged Marie filters yaay!```\n Gimme cookies!"
+            "```REEP filters.```"
         )
         if LOGGER:
             await kick.client.send_message(
-                LOGGER_GROUP, "I cleaned all Marie filters at " +
+                LOGGER_GROUP, "I cleaned all filters at " +
                 str(kick.chat_id)
             )
 
