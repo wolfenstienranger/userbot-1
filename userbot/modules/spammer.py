@@ -59,3 +59,13 @@ async def tiny_pic_spam(e):
                 "#PICSPAM \n\n"
                 "PicSpam was executed successfully"
                 )
+
+@register(outgoing=True, pattern="^.tsend ")
+async def tmeme(e):
+
+    tsend = str(e.text[7:])
+    message = tsend.replace(" ", "")
+    for letter in message:
+        await e.respond(letter)
+
+    await e.delete()
