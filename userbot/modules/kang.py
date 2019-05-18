@@ -92,13 +92,13 @@ async def kang(args):
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
             else:
-                await args.edit("Userbot sticker pack doesn't exist! Making a new one!")
+                await args.edit("Sticker pack doesn't exist! Making a new one!")
                 async with bot.conversation('Stickers') as conv:
                     await conv.send_message('/newpack')
                     await conv.get_response()
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
-                    await conv.send_message(f"@{user.username}'s userbot pack {pack}")
+                    await conv.send_message(f"@{user.username}'s kanged pack {pack}")
                     await conv.get_response()
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
