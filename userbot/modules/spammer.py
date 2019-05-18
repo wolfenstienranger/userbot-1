@@ -76,3 +76,11 @@ async def tmeme(e):
         await e.respond(letter)
 
     await e.delete()
+
+@register(outgoing=True, pattern="^.repeat")
+async def repeat(e):
+    message = e.text[10:]
+    count = int(e.text[8:10])
+    repmessage = message * count
+    await e.respond(repmessage)
+    await e.delete()
