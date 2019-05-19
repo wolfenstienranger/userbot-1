@@ -318,13 +318,6 @@ async def zal(zgfy):
         zalgofied_text = zalgo.zalgo().zalgofy(input_text)
         await zgfy.edit(zalgofied_text)
 
-
-@register(outgoing=True, pattern="^hi$")
-async def hoi(hello):
-    """ Greet everyone! """
-    await hello.edit("Hoi!😄")
-
-
 @register(outgoing=True, pattern="^.owo(?: |$)(.*)")
 async def faces(owo):
     """ UwU """
