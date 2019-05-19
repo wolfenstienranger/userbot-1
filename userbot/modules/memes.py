@@ -206,7 +206,7 @@ async def univsaye(cowmsg):
 async def kek(keks):
     """ Check yourself ;)"""
     uio = ["/", "\\"]
-    for i in range(1, 30):
+    for i in range(1, 51):
         time.sleep(0.2)
         await keks.edit(":" + uio[i % 2])
 
@@ -215,7 +215,7 @@ async def kek(keks):
 async def lol(lel):
     """ Ok... """
     okay = "-_-"
-    for _ in range(25):
+    for _ in range(35):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 
