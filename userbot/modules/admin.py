@@ -17,6 +17,7 @@ from telethon.tl.functions.channels import (EditAdminRequest,
 from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
                                ChatBannedRights, MessageEntityMentionName,
                                MessageMediaPhoto)
+from asyncio import sleep
 
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
 
@@ -759,9 +760,17 @@ async def kick(usr):
                     KICK_RIGHTS
                 )
             )
+            await sleep(.5)
         except BadRequestError:
             await usr.edit(NO_PERM)
             return
+        await usr.client(
+            EditBannedRequest(
+                usr.chat_id,
+                user.id,
+                ChatBannedRights(until_date=None)
+            )
+        )
 
         await usr.edit(f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
 
