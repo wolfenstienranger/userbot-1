@@ -20,7 +20,7 @@ UNAPPROVED_MSG = ("This is bot replying you, you are not permitted to PM. Wait f
 # =================================================================
 
 
-@register(incoming=True)
+@register(incoming=True, disable_edited=True)
 async def permitpm(event):
     """ Permits people from PMing you without approval. \
         Will block retarded nibbas automatically. """

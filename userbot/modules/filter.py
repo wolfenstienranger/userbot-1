@@ -17,7 +17,7 @@ from userbot import LOGGER, LOGGER_GROUP, HELPER
 from userbot.events import register
 
 
-@register(incoming=True)
+@register(incoming=True, disable_edited=True)
 async def filter_incoming_handler(handler):
     """ Checks if the incoming message contains handler of a filter """
     try:
