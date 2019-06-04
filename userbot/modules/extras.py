@@ -226,6 +226,12 @@ async def carbon_api(e):
     # Removing carbon.png after uploading
     await e.delete() # Deleting msg
 
+@register(outgoing=True, pattern="^.f ")
+async def payf(e):
+    paytext = e.text[3:]
+    pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(paytext*6, paytext,paytext, paytext*5, paytext, paytext, paytext)
+    await e.edit(pay)
+
 HELPER.update({
       "carbon":".carbon <text> \n Beautify your code"
 })
