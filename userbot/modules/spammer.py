@@ -10,14 +10,6 @@ from asyncio import wait
 from userbot import LOGGER_GROUP, LOGGER, HELPER
 from userbot.events import register
 
-@register(outgoing=True, pattern="^.tspam")
-async def tmeme(e):
-    tspam = str(e.text[7:])
-    message = tspam.replace(" ", "")
-    for letter in message:
-        await e.respond(letter)
-    await e.delete()
-
 @register(outgoing=True, pattern="^.spam")
 async def spammer(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -82,5 +74,4 @@ async def repeat(e):
     message = e.text[10:]
     count = int(e.text[8:10])
     repmessage = message * count
-    await e.respond(repmessage)
-    await e.delete()
+    await e.edit(repmessage)
