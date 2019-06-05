@@ -388,8 +388,8 @@ async def download_video(v_url):
 
         video_stream.download(filename=video.title)
 
-        url = video.thumbnail_url
-        resp = requests.get(url)
+        url = f"https://img.youtube.com/vi/{video.video_id}/maxresdefault.jpg"
+        resp = get(url)
         with open('thumbnail.jpg', 'wb') as file:
             file.write(resp.content)
 
