@@ -70,9 +70,9 @@ async def permitpm(event):
                         if LOGGER:
                              await event.client.send_message(
                               LOGGER_GROUP,
-                              "Count PM is seemingly going retard, plis restart bot!",
+                              "Count PM is seemingly going retard, restart bot!",
                               )
-                        LOGS.info("CountPM wen't rarted boi")
+                        LOGS.info("CountPM went rarted.")
                         return
 
                     await event.client(BlockRequest(event.chat_id))
