@@ -712,7 +712,7 @@ async def pin(msg):
             to_pin.edit(NO_PERM)
             return        
 
-        await msg.edit("`Pinned Successfully!`")
+        await msg.delete()
 
         user = await get_user_from_id(msg.from_id, msg)
 
@@ -744,13 +744,6 @@ async def kick(usr):
         if user:
             pass
         else:
-            return
-
-        # If the targeted user is a Sudo
-        if user.id in BRAIN_CHECKER:
-            await usr.edit(
-                "`Kick Error! I am not supposed to mute this user`"
-            )
             return
 
         await usr.edit("`Kicking...`")
