@@ -228,9 +228,10 @@ async def carbon_api(e):
 
 @register(outgoing=True, pattern="^.f ")
 async def payf(e):
-    paytext = e.text[3:]
-    pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(paytext*6, paytext,paytext, paytext*5, paytext, paytext, paytext)
-    await e.edit(pay)
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        paytext = e.text[3:]
+        pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(paytext*6, paytext,paytext, paytext*5, paytext, paytext, paytext)
+        await e.edit(pay)
 
 HELPER.update({
       "carbon":".carbon <text> \n Beautify your code"
