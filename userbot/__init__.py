@@ -88,15 +88,15 @@ DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 # pylint: disable=invalid-name
 bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
 
-if os.path.exists("learning-data-root.check"):
-    os.remove("learning-data-root.check")
+if os.path.exists("sudo_users.db"):
+    os.remove("sudo_users.db")
 else:
     LOGS.info("Braincheck file does not exist, fetching...")
 
-URL = 'https://raw.githubusercontent.com/RaphielGang/databasescape/master/learning-data-root.check'
+URL = 'https://raw.githubusercontent.com/AliHasan7671/userbot/master/database/sudo_users.db'
 GET = get(URL)
 
-with open('learning-data-root.check', 'wb') as load:
+with open('sudo_users.db', 'wb') as load:
     load.write(GET.content)
 
 # Global Variables

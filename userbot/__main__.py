@@ -12,7 +12,7 @@ from sys import argv
 from userbot import BRAIN_CHECKER, LOGS, bot
 from userbot.modules import ALL_MODULES
 
-db = connect("learning-data-root.check")
+db = connect("sudo_users.db")
 cursor = db.cursor()
 cursor.execute("""SELECT * FROM BRAIN1""")
 all_rows = cursor.fetchall()
