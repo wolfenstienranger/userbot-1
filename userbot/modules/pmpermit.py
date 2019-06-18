@@ -9,14 +9,14 @@
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from sqlalchemy.exc import IntegrityError 
+from sqlalchemy.exc import IntegrityError
 
 from userbot import (COUNT_PM, HELPER, LOGGER, LOGGER_GROUP,
                      PM_AUTO_BAN, BRAIN_CHECKER, LASTMSG, LOGS)
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
-UNAPPROVED_MSG = ("This is bot replying you, you are not permitted to PM. Wait for Ali to approve you! You will be blocked and reported if sent 4 more messages without permission.")
+UNAPPROVED_MSG = ("This is bot replying you, you are not permitted to PM. Wait for approval! You will be blocked and reported if sent 4 more messages without approval.")
 # =================================================================
 
 
