@@ -13,7 +13,8 @@ from userbot.events import register
 @register(outgoing=True, pattern="^.spam")
 async def spammer(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        if e.chat_id in BRAIN_CHECKER:
+        user = await get_user_from_id(e.from_id, e)
+        if e.chat_id in BRAIN_CHECKER and user.id not in BRAIN_CHECKER:
             await e.edit("`Not supposed to spam in this chat!`")
         else:
             message = e.text
@@ -31,7 +32,8 @@ async def spammer(e):
 @register(outgoing=True, pattern="^.bigspam")
 async def bigspam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        if e.chat_id in BRAIN_CHECKER:
+        user = await get_user_from_id(e.from_id, e)
+        if e.chat_id in BRAIN_CHECKER and user.id not in BRAIN_CHECKER:
             await e.edit("`Not supposed to spam in this chat!`")
         else:
             message = e.text
@@ -51,7 +53,8 @@ async def bigspam(e):
 @register(outgoing=True, pattern="^.picspam")
 async def tiny_pic_spam(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        if e.chat_id in BRAIN_CHECKER:
+        user = await get_user_from_id(e.from_id, e)
+        if e.chat_id in BRAIN_CHECKER and user.id not in BRAIN_CHECKER:
             await e.edit("`Not supposed to spam in this chat!`")
         else:
             message = e.text
@@ -84,3 +87,15 @@ async def repeat(e):
     count = int(e.text[8:10])
     repmessage = message * count
     await e.edit(repmessage)
+
+async def get_user_from_id(user, event):
+    if isinstance(user, str):
+        user = int(user)
+
+    try:
+        user_obj = await event.client.get_entity(user)
+    except (TypeError, ValueError) as err:
+        await event.edit(str(err))
+        return None
+
+    return user_obj 
