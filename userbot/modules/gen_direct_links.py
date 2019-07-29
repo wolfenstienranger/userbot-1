@@ -14,7 +14,7 @@ import requests
 from bs4 import BeautifulSoup
 from humanize import naturalsize
 
-from userbot import CMD_HELP
+from userbot import HELPER
 from userbot.events import register
 
 
@@ -347,7 +347,7 @@ def useragent():
     return user_agent.text
 
 
-CMD_HELP.update({
+HELPER.update({
     "direct": ".direct <url> <url>\n"
               "Usage: Generate direct download link from supported URL(s)\n"
               "Supported websites:\n"
